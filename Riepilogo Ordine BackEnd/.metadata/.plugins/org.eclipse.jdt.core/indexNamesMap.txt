@@ -1,0 +1,3 @@
+INDEX VERSION 1.134
+file:/C:/Users/Davide%20Gritta/Desktop/Corso%20Full%20stack/Workspace%20Front%20End/Riepilogo%20Ordine/Riepilogo%20Ordine%20BackEnd/.metadata/.plugins/org.eclipse.jdt.core/1865797976.index
+meta_index

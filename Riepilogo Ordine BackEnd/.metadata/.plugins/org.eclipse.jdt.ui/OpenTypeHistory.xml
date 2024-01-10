@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<typeInfoHistroy>
+    <typeInfo handle="=Riepilogo_ordine/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.service{CustomerService.java[CustomerService" modifiers="513" timestamp="1704897327764"/>
+    <typeInfo handle="=Riepilogo_ordine/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.service{OrderLineItemService.java[OrderLineItemService" modifiers="513" timestamp="1704897343472"/>
+    <typeInfo handle="=Riepilogo_ordine/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.service{OrdersService.java[OrdersService" modifiers="513" timestamp="1704897355068"/>
+    <typeInfo handle="=Riepilogo_ordine/C:\/Users\/Davide Gritta\/.m2\/repository\/org\/springframework\/spring-core\/6.1.2\/spring-core-6.1.2.jar=/maven.pomderived=/true=/=/maven.groupId=/org.springframework=/=/maven.artifactId=/spring-core=/=/maven.version=/6.1.2=/=/maven.scope=/compile=/=/maven.pomderived=/true=/&lt;org.springframework.core(OrderComparator$OrderSourceProvider.class[OrderSourceProvider" modifiers="1545" timestamp="1704896467785"/>
+    <typeInfo handle="=Riepilogo_ordine/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.service{ProductService.java[ProductService" modifiers="513" timestamp="1704898515844"/>
+    <typeInfo handle="=Riepilogo_ordine/C:\/Users\/Davide Gritta\/.m2\/repository\/org\/yaml\/snakeyaml\/2.2\/snakeyaml-2.2.jar=/maven.pomderived=/true=/=/maven.groupId=/org.yaml=/=/maven.artifactId=/snakeyaml=/=/maven.version=/2.2=/=/maven.scope=/compile=/=/maven.pomderived=/true=/&lt;org.yaml.snakeyaml.parser(Production.class[Production" modifiers="1536" timestamp="1700816617084"/>
+</typeInfoHistroy>
