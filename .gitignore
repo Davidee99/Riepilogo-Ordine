@@ -8,6 +8,9 @@
 # Local History for <a href="https://www.jcchouinard.com/python-with-vscode/">Visual Studio Code</a>
 .history/
  
+
+META-INF
+.META-INF
 # Common credential files
 **/credentials.json
 **/client_secrets.json
