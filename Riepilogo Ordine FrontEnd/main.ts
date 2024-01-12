@@ -1,5 +1,10 @@
 const url = 'http://localhost:8080/api/ProductController/getAll';
 
+
+
+var shoppingInfo: { [key: string]: number } = {};
+
+
 interface Product {
     code: string;
     description: string;
@@ -61,17 +66,26 @@ function createProductCard(product: Product) {
     `;
 
     // Aggiungiamo un listener per gestire il click sulla checkbox
-    const checkbox = card.querySelector(`#${product.code}`);
+    const checkbox = card.querySelector(`#${product.code}`) as HTMLInputElement; // Assicurati che checkbox sia di tipo HTMLInputElement
     if (checkbox) {
-        checkbox.addEventListener('change', function() {
-            if (this.checked) {
-               addToCart(product)
-              console.log("Checkbox is checked..");
+        checkbox.addEventListener('change', () => { // Usa una arrow function
+            if (checkbox.checked) { // Usa direttamente checkbox.checked
+                addToCart(product);
+                const selectElement = document.getElementById(`productQuantity_${product.code}`) as HTMLSelectElement;
+                const selectedVariant = selectElement.value;
+                shoppingInfo[product.code] = Number(selectedVariant);
+                console.log(shoppingInfo);
+                
+                console.log("Checkbox is checked..");
             } else {
-              console.log("Checkbox is not checked..");
+                console.log("Checkbox is not checked..");
             }
-          });
+        });
     }
+
+ 
+
+
 
     
 
@@ -126,19 +140,37 @@ const modalBody = document.querySelector('.modal-body')!
 if(modalButton){
     modalButton.addEventListener('click', function(){
         console.log('prova');
-        const cartContainer = document.getElementById('cartContainer')!
+        var cartContainer = document.getElementById('cartContainer')!
         console.log(cartContainer);
         
         if(modalTitle){
             modalTitle.innerHTML = 'Il tuo carrello'
             modalBody.appendChild(cartContainer)
-                
+         
+
+
+
         } 
+          
+        const closeButton  = document.querySelector(".btn-close")!;
+
+        closeButton.addEventListener('click', ()=>{
+              console.log('sono qui ');
+              console.log(closeButton);
+              const cartContainer = document.getElementById('cartContainer')!
+              const divC = document.getElementById('divContainer')!;
+              divC.appendChild(cartContainer);
+
+        })
+
         const deleteOrder = document.querySelector('.deleteOrder')!
         deleteOrder.addEventListener('click', function(){
             cartContainer.innerHTML = ''
         })
-        
+           const saveChange = document.querySelector('.buttonSave')!
+           saveChange.addEventListener('click', ()=>{
+            window.open('shipping.html','_blank'); 
+        }) 
     })
 }
 
@@ -156,8 +188,22 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
+ let status1 = new URLSearchParams(location.search).get('status');
+ console.log('cacca pupu ' + status1);
 
-  /*
+
+
+//  if(status1 == 'true'){
+//   var main1 = document.querySelector('main')!;
+//   main1.style.display='none';
+//  }
+ 
+
+ 
+
+
+
+/*
     passaggi mancanti:
     tsc --config per generare il file tscconfig
     installare il pacchetto lite-server con npm i lite-server
