@@ -1,4 +1,3 @@
-"use strict";
 const url = 'http://localhost:8080/api/ProductController/getAll';
 var shoppingInfo = {};
 function caricaJSON() {
@@ -137,13 +136,15 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 let status1 = new URLSearchParams(location.search).get('status');
 console.log('cacca pupu ' + status1);
+export { shoppingInfo };
 //  if(status1 == 'true'){
 //   var main1 = document.querySelector('main')!;
 //   main1.style.display='none';
 //  }
 /*
     passaggi mancanti:
-    tsc --config per generare il file tscconfig
+    npm init
+    tsc --init per generare il file tscconfig
     installare il pacchetto lite-server con npm i lite-server
     nel file tsc config modificare il target così "target": "ES6" e il module in "module": "ES2022"
   */ 
