@@ -1,0 +1,34 @@
+.divCont{
+    display: flex;
+     height:100vh;
+    margin: auto;
+    margin-top: -150px;
+    justify-content: center;
+    align-items: center;
+  
+
+}
+
+.divI{
+    width: 80%;
+
+    
+}
+
+.inputA{
+    display: flex;
+    flex-direction: column;
+
+}
+
+.inputA label{
+    margin-top:10px ;
+
+}
+
+.inputA input{
+  padding: 12px;
+
+}
+
+
