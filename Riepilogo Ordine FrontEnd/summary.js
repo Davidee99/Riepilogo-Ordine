@@ -21,15 +21,22 @@ const requestOptions = {
     },
     body: JSON.stringify(data),
 };
-var btnCSV = document.getElementById("btnCSV");
-btnCSV.addEventListener("click", function () {
-    console.log("btnCSV");
-    fetch(endpoint, requestOptions)
-        .then(response => response.json())
-        .then(data => {
-        console.log('Risposta dal server:', data);
-    })
-        .catch(error => {
-        console.error('Errore durante la chiamata HTTP:', error);
-    });
+document.addEventListener("DOMContentLoaded", function () {
+    var btnCSV = document.getElementById("btnCSV");
+    if (btnCSV) {
+        btnCSV.addEventListener("click", function () {
+            console.log("btnCSV");
+            fetch(endpoint, requestOptions)
+                .then(response => response.json())
+                .then(data => {
+                console.log('Risposta dal server:', data);
+            })
+                .catch(error => {
+                console.error('Errore durante la chiamata HTTP:', error);
+            });
+        });
+    }
+    else {
+        console.error("Elemento c on ID 'btnCSV' non trovato");
+    }
 });

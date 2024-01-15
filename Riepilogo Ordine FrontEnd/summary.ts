@@ -10,6 +10,7 @@ console.log("shippingAddress" , shippingAddress);
 console.log("billingAddress" , billingAddress);
 
 
+
 const endpoint = 'http://localhost:8080/api/OrderController/shop'; // Sostituisci con l'URL del tuo endpoint
 
 const data = {
@@ -26,16 +27,25 @@ const requestOptions: RequestInit = {
   },
   body: JSON.stringify(data),
 };
-var btnCSV = document.getElementById("btnCSV")!;
-btnCSV.addEventListener("click", function(){
-    console.log("btnCSV");
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    var btnCSV = document.getElementById("btnCSV");
     
-fetch(endpoint, requestOptions)
-  .then(response => response.json())
-  .then(data => {
-    console.log('Risposta dal server:', data);
-  })
-  .catch(error => {
-    console.error('Errore durante la chiamata HTTP:', error);
-  });
+    if (btnCSV) {
+        btnCSV.addEventListener("click", function () { 
+            console.log("btnCSV");
+            fetch(endpoint, requestOptions)
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Risposta dal server:', data);
+                })
+                .catch(error => {
+                    console.error('Errore durante la chiamata HTTP:', error);
+                });
+        });
+    } else {
+        console.error("Elemento c on ID 'btnCSV' non trovato.");
+    }
 });
+
