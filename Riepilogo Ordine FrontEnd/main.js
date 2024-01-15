@@ -17,17 +17,21 @@ function renderProductCards(data) {
     const cardContainer = document.querySelector('.card_container');
     if (cardContainer) {
         data.forEach((product) => {
-            const card = createProductCard(product);
+            // Crea l'URL dell'immagine univoco per ogni prodotto
+            const imageUrl = `https://picsum.photos/200?random=${product.code}`;
+            // Crea la card del prodotto con l'immagine dinamica
+            const card = createProductCard(product, imageUrl);
+            // Aggiungi la card al contenitore
             cardContainer.appendChild(card);
         });
     }
 }
-function createProductCard(product) {
+function createProductCard(product, imageUrl) {
     const card = document.createElement('div');
     card.className = 'event_card d-flex justify-content-center align-items-center';
     card.innerHTML = `
         <div class="imgageProduct">
-            <img src="./img/product.png" alt="">
+            <img src="${imageUrl}" alt="">
         </div>
         <div class="infoProductContainer">
             <div class="checkbox-container m-3 mb-5">
@@ -54,6 +58,10 @@ function createProductCard(product) {
         checkbox.addEventListener('change', () => {
             if (checkbox.checked) { // Usa direttamente checkbox.checked
                 addToCart(product);
+                const cartTitle = document.querySelector('.cartTitle');
+                cartTitle.classList.remove('dNone');
+                const btnNext = document.querySelector('.btnNext');
+                btnNext.classList.remove('dNone');
                 const selectElement = document.getElementById(`productQuantity_${product.code}`);
                 const selectedVariant = selectElement.value;
                 shoppingInfo[product.code] = Number(selectedVariant);
@@ -84,8 +92,15 @@ function addToCart(product) {
     const selectedVariant = selectElement.value;
     // Crea l'elemento del carrello
     const cartItem = document.createElement('div');
-    cartItem.className = 'd-flex';
-    cartItem.innerHTML = `${product.name} - Quantity: ${selectedQuantity} - Style: ${selectedVariant} <button class="removeButton">x</button>`;
+    cartItem.className = 'ms-3 mt-2 d-flex';
+    //cartItem.innerHTML = `${product.name} - Quantity: ${selectedQuantity} - Style: ${selectedVariant} <button class="removeButton btn btn-danger ms-2">Elimina</button>`;
+    cartItem.innerHTML = `
+    <div class="beautify">
+      <p>Nome Prodotto: ${product.name}</p>
+      <p>Quantità: ${selectedQuantity}</p>
+      <button class="removeButton btn btn-danger">Elimina</button>
+    </div>  
+    `;
     // Aggiungi l'elemento al carrello
     const cartContainer = document.getElementById('cartContainer');
     if (cartContainer) {
@@ -110,6 +125,7 @@ if (modalButton) {
             modalTitle.innerHTML = 'Il tuo carrello';
             modalBody.appendChild(cartContainer);
         }
+        manageEmptyCartContainer(cartContainer);
         const closeButton = document.querySelector(".btn-close");
         closeButton.addEventListener('click', () => {
             console.log('sono qui ');
@@ -120,7 +136,8 @@ if (modalButton) {
         });
         const deleteOrder = document.querySelector('.deleteOrder');
         deleteOrder.addEventListener('click', function () {
-            cartContainer.innerHTML = '';
+            location.reload();
+            window.location.href = 'index.html#products';
         });
         const saveChange = document.querySelector('.buttonSave');
         saveChange.addEventListener('click', () => {
@@ -132,7 +149,21 @@ function removeFromCart(cartItem) {
     const cartContainer = document.getElementById('cartContainer');
     if (cartContainer) {
         cartContainer.removeChild(cartItem);
+        manageEmptyCartContainer(cartContainer);
     }
+}
+function manageEmptyCartContainer(container) {
+    const saveChange = document.querySelector('.buttonSave');
+    if (isCartContainerEmpty(container)) {
+        saveChange.classList.add('dNone');
+    }
+    else {
+        saveChange.classList.remove('dNone');
+    }
+}
+function isCartContainerEmpty(container) {
+    var _a;
+    return ((_a = container === null || container === void 0 ? void 0 : container.textContent) === null || _a === void 0 ? void 0 : _a.trim()) === '';
 }
 document.addEventListener('DOMContentLoaded', function () {
     caricaJSON();

@@ -55,3 +55,36 @@ nav {
     border-radius: 20px;
     padding: 5px;
 }
+
+.dNone{
+    display: none;
+}
+
+.beautify{
+    border: 1px solid lightgray;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+footer {
+    background-color: #231f20;
+    margin-top: 10rem;
+}
+  .info {
+    margin-top: 20px;
+    text-align: center;
+    color: #ffff;
+  }
+
+ .footer2 {
+    position: relative;
+    padding: 20px;
+    
+  }
+
+.social a{
+    margin-left: 10px;
+    text-decoration: solid;
+    color: #ffff;
+    
+}

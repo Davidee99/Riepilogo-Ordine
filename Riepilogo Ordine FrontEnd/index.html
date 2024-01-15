@@ -3,10 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -15,6 +12,7 @@
     />
     <script src="main.js" type="module" defer></script>
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Products-service</title>
   </head>
   <body>
@@ -61,15 +59,15 @@
       </section>
 
       <section>
-        <h2 class="text-center mb-5">My Cart</h2>
+        <h2 class="text-center mt-5 mb-5 dNone cartTitle">My Cart</h2>
         <div id="divContainer">
-          <div id="cartContainer" class="badgeContainer m-2"></div>
+          <div id="cartContainer" class="badgeContainer d-flex flex-wrap m-2"></div>
         </div>
         <!-- Button trigger modal -->
         <button
           type="button"
           id="modalButton"
-          class="btn btn-primary ms-3"
+          class="btn btn-primary ms-4 mb-5 dNone btnNext"
           data-bs-toggle="modal"
           data-bs-target="#exampleModal"
         >
@@ -115,6 +113,25 @@
         </div>
       </section>
     </main>
+
+    <!-- footer -->
+
+    <footer>
+      <div class="footer2">
+          <div class="info">
+            <h1>Informazioni di contatto</h1>
+            <p>Email:info@example.it</p>
+            <p>Telefono : +39 344 9765 879</p>
+            <p>Via:Piazza Marco 30</p>
+          </div>
+      </div>
+      <div class="social">
+          <a target="_blank" href="https://www.instagram.com/" class="fa-brands fa-instagram"></a>
+          <a target="_blank" href="https://www.twitter.com/" class="fa-brands fa-twitter"></a>
+          <a target="_blank" href="https://www.facebook.com/" class="fa-brands fa-facebook"></a>
+      </div>
+      
+    </footer>
    
     <script
       src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"

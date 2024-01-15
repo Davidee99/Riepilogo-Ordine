@@ -33,19 +33,25 @@ function renderProductCards(data: Product[]) {
 
     if (cardContainer) {
         data.forEach((product: Product) => {
-            const card = createProductCard(product);
+            // Crea l'URL dell'immagine univoco per ogni prodotto
+            const imageUrl = `https://picsum.photos/200?random=${product.code}`;
+
+            // Crea la card del prodotto con l'immagine dinamica
+            const card = createProductCard(product, imageUrl);
+
+            // Aggiungi la card al contenitore
             cardContainer.appendChild(card);
         });
     }
 }
 
-function createProductCard(product: Product) {
+function createProductCard(product: Product, imageUrl: string) {
     const card = document.createElement('div');
     card.className = 'event_card d-flex justify-content-center align-items-center';
 
     card.innerHTML = `
         <div class="imgageProduct">
-            <img src="./img/product.png" alt="">
+            <img src="${imageUrl}" alt="">
         </div>
         <div class="infoProductContainer">
             <div class="checkbox-container m-3 mb-5">
@@ -73,6 +79,10 @@ function createProductCard(product: Product) {
         checkbox.addEventListener('change', () => { // Usa una arrow function
             if (checkbox.checked) { // Usa direttamente checkbox.checked
                 addToCart(product);
+                const cartTitle = document.querySelector('.cartTitle')!
+                cartTitle.classList.remove('dNone')
+                const btnNext = document.querySelector('.btnNext')!
+                btnNext.classList.remove('dNone')
                 const selectElement = document.getElementById(`productQuantity_${product.code}`) as HTMLSelectElement;
                 const selectedVariant = selectElement.value;
                 shoppingInfo[product.code] = Number(selectedVariant);
@@ -111,9 +121,16 @@ function addToCart(product: Product) {
 
     // Crea l'elemento del carrello
     const cartItem = document.createElement('div');
-    cartItem.className = 'd-flex'
-    cartItem.innerHTML = `${product.name} - Quantity: ${selectedQuantity} - Style: ${selectedVariant} <button class="removeButton">x</button>`;
-
+    cartItem.className = 'ms-3 mt-2 d-flex'
+    //cartItem.innerHTML = `${product.name} - Quantity: ${selectedQuantity} - Style: ${selectedVariant} <button class="removeButton btn btn-danger ms-2">Elimina</button>`;
+   
+    cartItem.innerHTML = `
+    <div class="beautify">
+      <p>Nome Prodotto: ${product.name}</p>
+      <p>Quantità: ${selectedQuantity}</p>
+      <button class="removeButton btn btn-danger">Elimina</button>
+    </div>  
+    `;
     // Aggiungi l'elemento al carrello
     const cartContainer = document.getElementById('cartContainer');
     if (cartContainer) {
@@ -123,6 +140,7 @@ function addToCart(product: Product) {
         const removeButton = cartItem.querySelector('.removeButton');
         if (removeButton) {
             removeButton.addEventListener('click', () => removeFromCart(cartItem));
+            
         }
     }
 }
@@ -141,11 +159,10 @@ if(modalButton){
         if(modalTitle){
             modalTitle.innerHTML = 'Il tuo carrello'
             modalBody.appendChild(cartContainer)
-         
-
-
 
         } 
+        manageEmptyCartContainer(cartContainer)
+        
           
         const closeButton  = document.querySelector(".btn-close")!;
 
@@ -160,7 +177,9 @@ if(modalButton){
 
         const deleteOrder = document.querySelector('.deleteOrder')!
         deleteOrder.addEventListener('click', function(){
-            cartContainer.innerHTML = ''
+            location.reload()
+            window.location.href = 'index.html#products'
+            
         })
            const saveChange = document.querySelector('.buttonSave')!
            saveChange.addEventListener('click', ()=>{
@@ -175,13 +194,27 @@ function removeFromCart(cartItem: HTMLElement) {
     const cartContainer = document.getElementById('cartContainer');
     if (cartContainer) {
         cartContainer.removeChild(cartItem);
+        manageEmptyCartContainer(cartContainer)
     }
 }
+
+function manageEmptyCartContainer(container: HTMLElement | null){
+    const saveChange = document.querySelector('.buttonSave')!
+    if(isCartContainerEmpty(container)){
+        saveChange.classList.add('dNone')
+    } else{
+        saveChange.classList.remove('dNone')
+
+    }
+}
+
+function isCartContainerEmpty(container: HTMLElement | null): boolean {
+    return container?.textContent?.trim() === '';
+  }
 
 document.addEventListener('DOMContentLoaded', function () {
     caricaJSON();
 });
-
 
  let status1 = new URLSearchParams(location.search).get('status');
  console.log('cacca pupu ' + status1);

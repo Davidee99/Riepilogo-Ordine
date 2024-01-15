@@ -91,6 +91,7 @@ document.addEventListener("DOMContentLoaded", function () {
   var btnCSV = document.getElementById("btnCSV")!;
     
   btnCSV.addEventListener("click", function () { 
+    alert("Sei sicuro di voler continuare con l'ordine?")
     let orderDiv = document.querySelector('.order')!;
     let btnFattura = document.querySelector('.btnFattura')!
     btnFattura.classList.remove('dNone')

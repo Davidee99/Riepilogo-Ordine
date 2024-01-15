@@ -36,3 +36,26 @@ nav {
 .dNone{
     display: none;
 }
+
+footer {
+    background-color: #231f20;
+    margin-top: 10rem;
+}
+  .info {
+    margin-top: 20px;
+    text-align: center;
+    color: #ffff;
+  }
+
+ .footer2 {
+    position: relative;
+    padding: 20px;
+    
+  }
+
+.social a{
+    margin-left: 10px;
+    text-decoration: solid;
+    color: #ffff;
+    
+}
