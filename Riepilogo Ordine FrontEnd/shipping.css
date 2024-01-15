@@ -1,34 +1,74 @@
-.divCont{
+.divCont {
     display: flex;
-     height:100vh;
     margin: auto;
-    margin-top: -150px;
     justify-content: center;
     align-items: center;
-  
 
 }
 
-.divI{
+.divContBill {
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.divI {
     width: 80%;
 
-    
+
 }
 
-.inputA{
+.inputA {
     display: flex;
     flex-direction: column;
 
 }
 
-.inputA label{
-    margin-top:10px ;
+.inputA label {
+    margin-top: 10px;
 
 }
 
-.inputA input{
-  padding: 12px;
+.inputA input {
+    padding: 12px;
 
 }
 
+.button1{
+    margin-top: 10px;
+}
 
+.button1 button{
+    padding: 5px;
+    border: solid 1px rgba(207, 31, 31, 0.637);
+    background-color: #ffff;
+    color: rgb(207, 31, 31);
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#bInvia{
+    border: solid 1px green;
+    color: green;
+}
+
+.contCheck{
+    margin: auto;
+    margin-top: 3rem;
+    width: 80%;
+    display: flex;
+    align-items: baseline;
+    gap: 5px;
+}
+
+.allert{
+    color: rgba(128, 128, 128, 0.651)
+}
+
+button:disabled{
+    color: rgba(128, 128, 128, 0.651) !important;
+    border: solid 1px rgba(128, 128, 128, 0.651) !important;
+    cursor: default;
+}
