@@ -1,3 +1,4 @@
+"use strict";
 function inviaForm() {
     const form = document.getElementById('form1');
     const formData = new FormData(form);
@@ -7,6 +8,7 @@ function inviaForm() {
     window.location.href = url;
     console.log('sono qui ');
 }
+console.log('sono qui 2');
 var shippingAddress = {
     postalCode: '',
     street: '',
@@ -19,8 +21,8 @@ var billingAddress = {
     city: '',
     state: ''
 };
-export { shippingAddress, billingAddress };
 function getShipping() {
+    console.log('sono qui 4');
     // Recupera i valori inseriti nel form
     const postalCode = document.getElementById('Postal').value;
     const street = document.getElementById('Ste').value;
@@ -32,12 +34,24 @@ function getShipping() {
         city: city,
         state: state
     };
+    console.log(shippingAddress);
     return shippingAddress;
 }
-const buttonInvia = document.getElementById('bInvia');
-buttonInvia.addEventListener('click', (event) => {
-    event.preventDefault();
-    shippingAddress = getShipping();
-    billingAddress = getShipping();
-    // inviaForm();
-});
+try {
+    const buttonInvia = document.getElementById('bInvia');
+    buttonInvia.addEventListener('click', (event) => {
+        console.log('sono qui 3');
+        event.preventDefault();
+        shippingAddress = getShipping();
+        billingAddress = getShipping();
+        console.log(shippingAddress);
+        console.log(billingAddress);
+        localStorage.setItem("shippingAddress", JSON.stringify(shippingAddress));
+        localStorage.setItem("billingAddress", JSON.stringify(billingAddress));
+        inviaForm();
+    });
+}
+catch (error) {
+    console.log(error);
+}
+// export { shippingAddress, billingAddress };

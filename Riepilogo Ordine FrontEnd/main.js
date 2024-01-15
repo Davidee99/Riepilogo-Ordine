@@ -1,3 +1,4 @@
+"use strict";
 const url = 'http://localhost:8080/api/ProductController/getAll';
 var shoppingInfo = {};
 function caricaJSON() {
@@ -56,6 +57,7 @@ function createProductCard(product) {
                 const selectedVariant = selectElement.value;
                 shoppingInfo[product.code] = Number(selectedVariant);
                 console.log(shoppingInfo);
+                localStorage.setItem("shoppingInfo", JSON.stringify(shoppingInfo));
                 console.log("Checkbox is checked..");
             }
             else {
@@ -136,7 +138,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 let status1 = new URLSearchParams(location.search).get('status');
 console.log('cacca pupu ' + status1);
-export { shoppingInfo };
+// export {shoppingInfo};
 //  if(status1 == 'true'){
 //   var main1 = document.querySelector('main')!;
 //   main1.style.display='none';
