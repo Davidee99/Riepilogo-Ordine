@@ -1,0 +1,38 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+nav {
+    background-color: #231f20;
+}
+
+.navbar img {
+    width: 130px;
+}
+
+.links a:hover {
+    text-decoration: underline !important;
+}
+
+.riepilogo, .shipping, .billing, .order{
+    margin: 20px;
+    border: 1px solid lightgray;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+#btnCSV{
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid lightblue;
+    color: white;
+    background: aquamarine;
+    margin: 20px;
+}
+
+.dNone{
+    display: none;
+}
