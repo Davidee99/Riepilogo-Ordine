@@ -75,7 +75,7 @@ function createProductCard(product: Product) {
                 const selectedVariant = selectElement.value;
                 shoppingInfo[product.code] = Number(selectedVariant);
                 console.log(shoppingInfo);
-                
+                localStorage.setItem("shoppingInfo", JSON.stringify(shoppingInfo));
                 console.log("Checkbox is checked..");
             } else {
                 console.log("Checkbox is not checked..");
@@ -191,7 +191,7 @@ document.addEventListener('DOMContentLoaded', function () {
  let status1 = new URLSearchParams(location.search).get('status');
  console.log('cacca pupu ' + status1);
 
-export {shoppingInfo};
+// export {shoppingInfo};
 
 //  if(status1 == 'true'){
 //   var main1 = document.querySelector('main')!;

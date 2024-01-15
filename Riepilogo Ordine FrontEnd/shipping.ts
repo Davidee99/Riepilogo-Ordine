@@ -11,6 +11,8 @@ function inviaForm() {
   console.log('sono qui ');
 
 }
+console.log('sono qui 2');
+
 
 interface Address {
   postalCode: string,
@@ -32,10 +34,10 @@ var billingAddress:Address = {
   state: ''
 } as Address;
 
-export { shippingAddress, billingAddress };
+
 
 function getShipping(){
-
+console.log('sono qui 4');
   // Recupera i valori inseriti nel form
   const postalCode = (document.getElementById('Postal') as HTMLInputElement).value;
   const street = (document.getElementById('Ste') as HTMLInputElement).value;
@@ -47,15 +49,29 @@ function getShipping(){
     city: city,
     state: state
   } as Address;
-
+console.log(shippingAddress);
   return shippingAddress;
 }
 
-
-const buttonInvia = document.getElementById('bInvia')!;
+try {
+  const buttonInvia = document.getElementById('bInvia')!;
 buttonInvia.addEventListener('click', (event: Event) => {
+  console.log('sono qui 3');
   event.preventDefault();
   shippingAddress = getShipping();
-  billingAddress = getShipping();
-  // inviaForm();
+billingAddress = getShipping();
+  console.log(shippingAddress);
+  console.log(billingAddress);
+  localStorage.setItem("shippingAddress", JSON.stringify(shippingAddress));
+  localStorage.setItem("billingAddress", JSON.stringify(billingAddress));
+  inviaForm();
 })
+  
+} catch (error) {
+  console.log(error);
+  
+}
+
+
+
+// export { shippingAddress, billingAddress };
