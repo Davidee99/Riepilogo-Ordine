@@ -88,7 +88,14 @@ resetShip.addEventListener('click', function(){
     (document.getElementById('Ste') as HTMLInputElement).value = "";
     (document.getElementById('City') as HTMLInputElement).value = "";
     (document.getElementById('Sta') as HTMLInputElement).value = "";
-});
+    if(checkBtn.checked){
+      (document.getElementById('Postal2') as HTMLInputElement).value = "";
+      (document.getElementById('Ste2') as HTMLInputElement).value = "";
+      (document.getElementById('City2') as HTMLInputElement).value = "";
+      (document.getElementById('Sta2') as HTMLInputElement).value = "";
+    }
+    handleInputChange();
+  });
 
 // button reset Billing
 var resetBtnBill = document.getElementById("resetBilling") as HTMLButtonElement;
@@ -97,6 +104,7 @@ resetBtnBill.addEventListener('click', function(){
     (document.getElementById('Ste2') as HTMLInputElement).value = "";
     (document.getElementById('City2') as HTMLInputElement).value = "";
     (document.getElementById('Sta2') as HTMLInputElement).value = "";
+    handleInputChange();
 });
 
 
@@ -158,6 +166,8 @@ function handleInputChange() {
 // Se tutti i campi di imput del form di Shipping sono pieni si attiva il checkBox e si rimuove il messaggo di alert
   if (postalCode === "" || street === "" || city === "" || state === "") {
     checkBtn.disabled = true;
+    var paragrafBefore = document.querySelector(".contCheck p")!;
+    paragrafBefore.innerHTML = "Compilare tutti i campi!";
   } else {
     checkBtn.disabled = false;
     var paragrafBefore = document.querySelector(".contCheck p")!;

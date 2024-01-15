@@ -68,6 +68,13 @@ resetShip.addEventListener('click', function () {
     document.getElementById('Ste').value = "";
     document.getElementById('City').value = "";
     document.getElementById('Sta').value = "";
+    if (checkBtn.checked) {
+        document.getElementById('Postal2').value = "";
+        document.getElementById('Ste2').value = "";
+        document.getElementById('City2').value = "";
+        document.getElementById('Sta2').value = "";
+    }
+    handleInputChange();
 });
 // button reset Billing
 var resetBtnBill = document.getElementById("resetBilling");
@@ -76,6 +83,7 @@ resetBtnBill.addEventListener('click', function () {
     document.getElementById('Ste2').value = "";
     document.getElementById('City2').value = "";
     document.getElementById('Sta2').value = "";
+    handleInputChange();
 });
 var checkBtn = document.getElementById("addressCheck");
 //In caso venga flaggata la checkbox inseriamo i valori del Shipping Address all'interno del Billing Address
@@ -125,6 +133,8 @@ function handleInputChange() {
     // Se tutti i campi di imput del form di Shipping sono pieni si attiva il checkBox e si rimuove il messaggo di alert
     if (postalCode === "" || street === "" || city === "" || state === "") {
         checkBtn.disabled = true;
+        var paragrafBefore = document.querySelector(".contCheck p");
+        paragrafBefore.innerHTML = "Compilare tutti i campi!";
     }
     else {
         checkBtn.disabled = false;
