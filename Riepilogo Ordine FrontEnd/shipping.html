@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,30 +8,57 @@
     <link rel="stylesheet" href="shipping.css">
     <script src="shipping.js" type="module" defer></script>
 </head>
+
 <body>
     <div class="divCont">
         <div class="divI">
-         <h1 for="">Shipping Address</h1>
+            <h1 for="">Shipping Address</h1>
             <form id="form1">
                 <div class="inputA">
-                <label for="Postal">Postal Code</label>
-                <input   id="Postal" placeholder="Postal Code" type="text">
-                <label for="Ste">Street</label>
-                <input  id="Ste" placeholder="Street"  type="text">
-                <label for="City">City</label>
-                <input  id="City" placeholder="city" type="text">
-                <label for="Sta">State</label>
-                <input id="Sta" placeholder="State" type="text"> 
-             <div class="button1">
-                <button id="bInvia">Invia!</button>
-                <button type="reset">Reset</button>
-             </div> 
-            </div>
+                    <label for="Postal">Postal Code</label>
+                    <input id="Postal" placeholder="Postal Code" type="text">
+                    <label for="Ste">Street</label>
+                    <input id="Ste" placeholder="Street" type="text">
+                    <label for="City">City</label>
+                    <input id="City" placeholder="city" type="text">
+                    <label for="Sta">State</label>
+                    <input id="Sta" placeholder="State" type="text">
+                    <div class="button1">
+                        <button id="resetShip" type="reset">Reset</button>
+                    </div>
+                </div>
             </form>
-    
-        
         </div>
-       
+    </div>
+    <div class="contCheck">
+        <label for="addressCheck">L'indirizzo di spedizione coincide con quello di fatturazione?</label>
+        <input type="checkbox" name="addressCheck" id="addressCheck" disabled>
+        <p class="allert">Compilare tutti i campi!</p>
+    </div>
+    <!-- billing Address -->
+    <div class="divContBill">
+        <div class="divI">
+            <h1 for="">Billing Address</h1>
+            <form id="form2">
+                <div class="inputA">
+                    <label for="Postal2">Postal Code</label>
+                    <input id="Postal2" placeholder="Postal Code" type="text">
+                    <label for="Ste2">Street</label>
+                    <input id="Ste2" placeholder="Street" type="text">
+                    <label for="City2">City</label>
+                    <input id="City2" placeholder="city" type="text">
+                    <label for="Sta2">State</label>
+                    <input id="Sta2" placeholder="State" type="text">
+                    <div class="button1">
+                        <button id="bInvia" disabled>Invia!</button>
+                        <button id="resetBilling" type="reset">Reset</button>
+                    </div>
+                </div>
+            </form>
+
+
+        </div>
     </div>
 </body>
+
 </html>
