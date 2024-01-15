@@ -14,12 +14,14 @@ interface Product {
     variants: string | undefined;
 }
 
+
 function caricaJSON() {
     fetch(url)
         .then(response => response.json())
         .then(data => {
             console.log(data);
-            renderProductCards(data);
+            renderProductCards(data)
+            localStorage.setItem('totalProducts', JSON.stringify(data))
         })
         .catch(error => {
             console.error('Errore nel caricamento del JSON:', error);
@@ -83,15 +85,8 @@ function createProductCard(product: Product) {
         });
     }
 
- 
-
-
-
-    
-
     return card;
 }
-
 
 
 
